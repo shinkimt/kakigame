@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
+
+    // 回転のフラグ
     bool flg = true;
-    // Start is called before the first frame update
+
     void Start()
     {
         Application.targetFrameRate = 60;
@@ -18,8 +20,10 @@ public class Rotation : MonoBehaviour
             Rotate();
     }
 
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //何かとぶつかるとフラグ変更→回転停止
         flg = false;
     }
 
