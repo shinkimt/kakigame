@@ -6,6 +6,7 @@ public class Rotation : MonoBehaviour
 {
 
     // 回転のフラグ
+
     bool flg = true;
 
     void Start()
@@ -20,10 +21,17 @@ public class Rotation : MonoBehaviour
             Rotate();
     }
 
-    
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.name == "ScreenTouch")
+            Destroy(this.gameObject);
         //何かとぶつかるとフラグ変更→回転停止
+//        flg = false;
+    }
+
+    public void FlgChange()
+    {
+        Debug.Log(gameObject.name);
         flg = false;
     }
 
