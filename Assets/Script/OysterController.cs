@@ -17,7 +17,7 @@ public class OysterController : MonoBehaviour
     {
         // アプリフレームレートを60fpsに設定
         Application.targetFrameRate = 60;
-
+        Screen.fullScreen = true;
         //リジッドボディの取得（タッチで落下させる処理を行うため）
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -74,18 +74,5 @@ public class OysterController : MonoBehaviour
     {
         transform.Rotate(new Vector3(0, 0, 1.0f));
     }
-
-    void OnMouseDrag()
-    {
-        Debug.Log("test");
-        //マウスの座標を取得してスクリーン座標を更新
-        Vector3 thisPosition = Input.mousePosition;
-        //スクリーン座標→ワールド座標
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(thisPosition);
-        worldPosition.z = 0f;
-
-        this.transform.position = worldPosition;
-    }
-
 
 }
