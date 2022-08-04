@@ -10,11 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7609326743677951534}
   - component: {fileID: 7609326743677951529}
-  - component: {fileID: 7609326743677951528}
   - component: {fileID: 7609326743677951535}
   - component: {fileID: 7609326743677951532}
-  - component: {fileID: 7609326743677951522}
-  - component: {fileID: 7609326743677951533}
+  - component: {fileID: -994158535723592855}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -89,18 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7609326743677951528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7609326743677951531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c73a6a439832f4419e8ca0e8af4b144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &7609326743677951535
 Rigidbody2D:
   serializedVersion: 4
@@ -148,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7609326743677951522
+--- !u!114 &-994158535723592855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,47 +143,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7609326743677951531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdcbb43058126b741b3330092615ac16, type: 3}
+  m_Script: {fileID: 11500000, guid: f9cc1e84ec1c46d41b7886ecaec57d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7609326743677951533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7609326743677951531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7609326743677951522}
-          m_TargetAssemblyTypeName: FallBlock, Assembly-CSharp
-          m_MethodName: OnClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 7609326743677951528}
-          m_TargetAssemblyTypeName: Rotation, Assembly-CSharp
-          m_MethodName: FlgChange
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2

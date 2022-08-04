@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 1785051169}
   - component: {fileID: 1785051171}
   m_Layer: 0
-  m_Name: ScreenTouch
+  m_Name: DeathZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

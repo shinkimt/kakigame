@@ -17,7 +17,7 @@ public class CreateBlock : MonoBehaviour
     void Update()
     {
         // 一定時間ごとにプレハブを生成
-        if (Time.frameCount % 300 == 0)
+        if (Time.frameCount % 100 == 0)
         {
             // 生成位置
             Vector3 pos = new Vector3(0.0f, 4.0f, 0.0f);
