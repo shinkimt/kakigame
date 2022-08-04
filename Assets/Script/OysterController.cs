@@ -5,7 +5,12 @@ using UnityEngine;
 public class OysterController : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    bool Rotateflg = true;
+    bool TouchFlg = true;
+
+    // ドラッグ移動制御に使用する値
+    Vector3 previousPos, currentPos;
+    const float LOAD_WIDTH = 6f;
+    const float MOVE_MAX = 2.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +25,42 @@ public class OysterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 画面クリックで重力反映させ落下状態と回転停止
-        //if (Input.GetMouseButton(0))
-        //{
-        //    rb2d.gravityScale = 1.0f;
-        //    Rotateflg = false;
-        //}
+        if(TouchFlg)
+        {
+            // クリック話て重力反映させ落下状態と回転停止
+            if (Input.GetMouseButtonUp(0))
+            {
+                rb2d.gravityScale = 1.0f;
+                TouchFlg = false;
+            }
+
+            // スワイプによる移動処理
+            if (Input.GetMouseButtonDown(0))
+            {
+                previousPos = Input.mousePosition;
+            }
+            if (Input.GetMouseButton(0))
+            {
+                // スワイプによる移動距離を取得
+                currentPos = Input.mousePosition;
+                float diffDistance = (currentPos.x - previousPos.x) / Screen.width * LOAD_WIDTH;
+
+                // 次のローカルx座標を設定 ※道の外にでないように
+                float newX = Mathf.Clamp(transform.localPosition.x + diffDistance, -MOVE_MAX, MOVE_MAX);
+                transform.localPosition = new Vector3(newX, this.transform.localPosition.y, 0);
+
+                // タップ位置を更新
+                previousPos = currentPos;
+            }
+
+        }
+
+
 
     }
     void FixedUpdate()
     {
-        if (Rotateflg)
+        if (TouchFlg)
             Rotate();
     }
 
