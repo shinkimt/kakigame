@@ -21,11 +21,11 @@ public class OysterController : MonoBehaviour
     void Update()
     {
         // 画面クリックで重力反映させ落下状態と回転停止
-        if (Input.GetMouseButton(0))
-        {
-            rb2d.gravityScale = 1.0f;
-            Rotateflg = false;
-        }
+        //if (Input.GetMouseButton(0))
+        //{
+        //    rb2d.gravityScale = 1.0f;
+        //    Rotateflg = false;
+        //}
 
     }
     void FixedUpdate()
@@ -43,6 +43,18 @@ public class OysterController : MonoBehaviour
     void Rotate()
     {
         transform.Rotate(new Vector3(0, 0, 1.0f));
+    }
+
+    void OnMouseDrag()
+    {
+        Debug.Log("test");
+        //マウスの座標を取得してスクリーン座標を更新
+        Vector3 thisPosition = Input.mousePosition;
+        //スクリーン座標→ワールド座標
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(thisPosition);
+        worldPosition.z = 0f;
+
+        this.transform.position = worldPosition;
     }
 
 
