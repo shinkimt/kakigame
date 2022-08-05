@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreateBlock : MonoBehaviour
 {
     // プレハブ格納用
-    public GameObject[] Prefab = new GameObject[2];
+    public GameObject[] Prefab = new GameObject[5];
 
     bool flg = false;
     bool ScrollFlg = false;
@@ -13,19 +13,20 @@ public class CreateBlock : MonoBehaviour
     int RepopCnt = 0;
     int ScrollCnt = 0;
 
-
+    public AudioClip[] audioc = new AudioClip[2];
+    AudioSource audios;
     private void Awake()
     {
-        // アプリフレームレートを60fpsに設定
-        Application.targetFrameRate = 60;
-        Screen.fullScreen = true;
+
 
     }
     // Start is called before the first frame update
     void Start()
     {
+        audios = GetComponent<AudioSource>();
         // 牡蠣プレハブをエミッターの位置に生成
         Instantiate(Prefab[Random.Range(0,2)], transform.position, Quaternion.identity);
+        audios.PlayOneShot(audioc[0]);
     }
 
     private void Update()
@@ -33,6 +34,7 @@ public class CreateBlock : MonoBehaviour
         // 画面クリックしたあと一定時間後に牡蠣生成
         if (Input.GetMouseButtonUp(0))
         {
+            audios.PlayOneShot(audioc[1]);
             flg = true;
         }
     }
@@ -65,9 +67,11 @@ public class CreateBlock : MonoBehaviour
             else
             {
                 // プレハブを指定位置に生成
-                Instantiate(Prefab[Random.Range(0, 2)], transform.position, Quaternion.identity);
+                Instantiate(Prefab[Random.Range(0, 3)], transform.position, Quaternion.identity);
                 RepopCnt = 0;
                 flg = false;
+                audios.PlayOneShot(audioc[0]);
+
 
             }
 
@@ -85,9 +89,11 @@ public class CreateBlock : MonoBehaviour
                 ScrollCnt = 0;
 
                 // プレハブを指定位置に生成
-                Instantiate(Prefab[Random.Range(0, 2)], transform.position, Quaternion.identity);
+                Instantiate(Prefab[Random.Range(0, 3)], transform.position, Quaternion.identity);
                 RepopCnt = 0;
                 flg = false;
+                audios.PlayOneShot(audioc[0]);
+
 
             }
 
