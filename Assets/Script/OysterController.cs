@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// リザルト処理の前に確認する。
+// https://mono-pro.net/archives/9253
+
 public class OysterController : MonoBehaviour
 {
     private Rigidbody2D rb2d;
