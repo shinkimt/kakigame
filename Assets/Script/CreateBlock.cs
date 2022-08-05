@@ -5,11 +5,14 @@ using UnityEngine;
 public class CreateBlock : MonoBehaviour
 {
     // プレハブ格納用
-    public GameObject Prefab;
+    public GameObject[] Prefab = new GameObject[2];
 
     bool flg = false;
+    bool ScrollFlg = false;
 
-    int num = 0;
+    int RepopCnt = 0;
+    int ScrollCnt = 0;
+
 
     private void Awake()
     {
@@ -21,33 +24,73 @@ public class CreateBlock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        // 生成位置
-        Vector3 pos = new Vector3(0.0f, 4.0f, 0.0f);
-        // プレハブを指定位置に生成
-        Instantiate(Prefab, pos, Quaternion.identity);
-
+        // 牡蠣プレハブをエミッターの位置に生成
+        Instantiate(Prefab[Random.Range(0,2)], transform.position, Quaternion.identity);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        // 画面クリックしたあと一定時間後に牡蠣生成
         if (Input.GetMouseButtonUp(0))
         {
             flg = true;
         }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        Debug.Log(RepopCnt);
+
 
         if (flg)
-            num++;
+            RepopCnt++;
 
-        if (num == 100)
+        // 一定時間経過後
+        if (RepopCnt == 100)
         {
-            // 生成位置
-            Vector3 pos = new Vector3(0.0f, 4.0f, 0.0f);
-            // プレハブを指定位置に生成
-            Instantiate(Prefab, pos, Quaternion.identity);
-            num = 0;
-            flg = false;
+            // レイを真下に飛ばし、エミッター近くにオブジェクトがないかチェック
+            Vector3 pos = gameObject.transform.position;
+            pos.y = -5.0f;
+            Debug.DrawRay(gameObject.transform.position, pos, Color.red, 0.1f);
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, pos);
+            Debug.Log(hit.distance);
+
+            // オブジェクトが近い場合カメラとエミッター全体を上方向に移動させる。
+            if (hit.distance < 4.0f)
+            {
+                ScrollFlg = true;
+            }
+            else
+            {
+                // プレハブを指定位置に生成
+                Instantiate(Prefab[Random.Range(0, 2)], transform.position, Quaternion.identity);
+                RepopCnt = 0;
+                flg = false;
+
+            }
+
+        }
+
+        if (ScrollFlg)
+        {
+            GameObject obj = GameObject.Find("Scroll");
+            Transform my = obj.transform;
+            my.Translate(0.0f, 0.01f, 0.0f);
+            ScrollCnt++;
+            if (ScrollCnt >= 60)
+            {
+                ScrollFlg = false;
+                ScrollCnt = 0;
+
+                // プレハブを指定位置に生成
+                Instantiate(Prefab[Random.Range(0, 2)], transform.position, Quaternion.identity);
+                RepopCnt = 0;
+                flg = false;
+
+            }
+
         }
 
     }
