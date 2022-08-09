@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 13578238}
   m_Layer: 5
   m_Name: kaki1
-  m_TagString: Untagged
+  m_TagString: kaki01
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 253068957}
   m_Layer: 5
   m_Name: kaki2
-  m_TagString: Untagged
+  m_TagString: kaki02
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 337767665}
   m_Layer: 5
   m_Name: kaki3
-  m_TagString: Untagged
+  m_TagString: kaki03
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -777,6 +777,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: 0
+  sprites:
+  - {fileID: -1631539520, guid: d47f0ca1871cca04ab51d30233bc4d1e, type: 3}
+  - {fileID: 1401529010, guid: d47f0ca1871cca04ab51d30233bc4d1e, type: 3}
+  - {fileID: 1987591716, guid: d47f0ca1871cca04ab51d30233bc4d1e, type: 3}
+  - {fileID: 426590347, guid: d47f0ca1871cca04ab51d30233bc4d1e, type: 3}
+  - {fileID: -1965439119, guid: d47f0ca1871cca04ab51d30233bc4d1e, type: 3}
+  - {fileID: -1322131898, guid: d47f0ca1871cca04ab51d30233bc4d1e, type: 3}
+  - {fileID: -8233009, guid: d47f0ca1871cca04ab51d30233bc4d1e, type: 3}
+  - {fileID: -2006694494, guid: d47f0ca1871cca04ab51d30233bc4d1e, type: 3}
+  - {fileID: -277629266, guid: d47f0ca1871cca04ab51d30233bc4d1e, type: 3}
+  - {fileID: 2081088640, guid: d47f0ca1871cca04ab51d30233bc4d1e, type: 3}
+  - {fileID: 21300000, guid: 13767c10ad624d544a0502e3f529fb05, type: 3}
+  - {fileID: 21300000, guid: 326c7049fdbcfea4c8c933b40f405106, type: 3}
+  - {fileID: 21300000, guid: 98dc5b0ece484774d9a8cbaea6c2df53, type: 3}
 --- !u!1 &486226635
 GameObject:
   m_ObjectHideFlags: 0
