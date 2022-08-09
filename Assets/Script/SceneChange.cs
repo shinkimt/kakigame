@@ -18,7 +18,7 @@ public class SceneChange : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        FadeManager.Instance.LoadScene("Title", 1.0f);
+        FadeManager.Instance.LoadScene("Title", 3.0f);
     }
 
 }

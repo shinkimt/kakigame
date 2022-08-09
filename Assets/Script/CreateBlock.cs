@@ -5,18 +5,20 @@ using UnityEngine;
 public class CreateBlock : MonoBehaviour
 {
     // プレハブ格納用
-    public GameObject[] Prefab = new GameObject[6];
+    public GameObject[] Prefab = new GameObject[9];
 
-    bool flg = false;
+    bool flg = true;
     bool ScrollFlg = false;
 
-    int RepopCnt = 0;
+    int RepopCnt;
     int ScrollCnt = 0;
+    public int Check_Cnt;
 
     public AudioClip[] audioc = new AudioClip[2];
     AudioSource audios;
 
     int randtmp = 0;
+
 
     private void Awake()
     {
@@ -28,8 +30,8 @@ public class CreateBlock : MonoBehaviour
     {
         audios = GetComponent<AudioSource>();
         // 牡蠣プレハブをエミッターの位置に生成
-        Instantiate(Prefab[Random.Range(0,6)], transform.position, Quaternion.identity);
-        audios.PlayOneShot(audioc[0]);
+     //   Instantiate(Prefab[Random.Range(0,6)], transform.position, Quaternion.identity);
+      //  audios.PlayOneShot(audioc[0]);
     }
 
     private void Update()
@@ -45,7 +47,7 @@ public class CreateBlock : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        randtmp = Random.Range(0, 6);
+        randtmp = Random.Range(0, 10);
         Debug.Log(RepopCnt);
 
 
@@ -53,7 +55,7 @@ public class CreateBlock : MonoBehaviour
             RepopCnt++;
 
         // 一定時間経過後
-        if (RepopCnt > 100)
+        if (RepopCnt > Check_Cnt && ScrollFlg == false)
         {
             // レイを真下に飛ばし、エミッター近くにオブジェクトがないかチェック
             Vector3 pos = gameObject.transform.position;
@@ -71,7 +73,7 @@ public class CreateBlock : MonoBehaviour
             else
             {
                 // プレハブを指定位置に生成
-                Instantiate(Prefab[Random.Range(0, 6)], transform.position, Quaternion.identity);
+                Instantiate(Prefab[randtmp], transform.position, Quaternion.identity);
                 RepopCnt = 0;
                 flg = false;
                 audios.PlayOneShot(audioc[0]);
@@ -91,7 +93,7 @@ public class CreateBlock : MonoBehaviour
                 ScrollCnt = 0;
 
                 // プレハブを指定位置に生成
-                Instantiate(Prefab[Random.Range(0, 6)], transform.position, Quaternion.identity);
+                Instantiate(Prefab[randtmp], transform.position, Quaternion.identity);
                 RepopCnt = 0;
                 flg = false;
                 audios.PlayOneShot(audioc[0]);

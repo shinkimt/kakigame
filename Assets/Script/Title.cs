@@ -15,11 +15,12 @@ public class Title : MonoBehaviour
     {
         // アプリフレームレートを60fpsに設定
         Application.targetFrameRate = 60;
-        Screen.fullScreen = true;
         audios = GetComponent<AudioSource>();
     }
     private void Update()
     {
+    //    Screen.fullScreen = true;
+
 
         // クリック話て重力反映させ落下状態と回転停止
         if (Input.GetMouseButtonUp(0))
