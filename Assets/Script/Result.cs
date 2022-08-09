@@ -7,7 +7,7 @@ public class Result : MonoBehaviour
     public int Score = 23;
 
     public SpriteRenderer spriteRenderer;
-    public Sprite[] sprite;
+//    public Sprite[] sprite;
 
     void Start()
     {
@@ -17,7 +17,7 @@ public class Result : MonoBehaviour
     void Update()
     {
         //¶ƒNƒŠƒbƒN
-        if (Input.GetMouseButtonDown(0))
-            spriteRenderer.sprite = sprite;
+        if (Input.GetMouseButtonDown(0)) ;
+//            spriteRenderer.sprite = sprite;
     }
 }

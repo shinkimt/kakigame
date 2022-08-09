@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreateBlock : MonoBehaviour
 {
     // プレハブ格納用
-    public GameObject[] Prefab = new GameObject[5];
+    public GameObject[] Prefab = new GameObject[6];
 
     bool flg = false;
     bool ScrollFlg = false;
@@ -25,7 +25,7 @@ public class CreateBlock : MonoBehaviour
     {
         audios = GetComponent<AudioSource>();
         // 牡蠣プレハブをエミッターの位置に生成
-        Instantiate(Prefab[Random.Range(0,2)], transform.position, Quaternion.identity);
+        Instantiate(Prefab[Random.Range(0,7)], transform.position, Quaternion.identity);
         audios.PlayOneShot(audioc[0]);
     }
 
@@ -49,7 +49,7 @@ public class CreateBlock : MonoBehaviour
             RepopCnt++;
 
         // 一定時間経過後
-        if (RepopCnt == 100)
+        if (RepopCnt > 100)
         {
             // レイを真下に飛ばし、エミッター近くにオブジェクトがないかチェック
             Vector3 pos = gameObject.transform.position;
@@ -67,7 +67,7 @@ public class CreateBlock : MonoBehaviour
             else
             {
                 // プレハブを指定位置に生成
-                Instantiate(Prefab[Random.Range(0, 3)], transform.position, Quaternion.identity);
+                Instantiate(Prefab[Random.Range(0, 7)], transform.position, Quaternion.identity);
                 RepopCnt = 0;
                 flg = false;
                 audios.PlayOneShot(audioc[0]);
@@ -89,7 +89,7 @@ public class CreateBlock : MonoBehaviour
                 ScrollCnt = 0;
 
                 // プレハブを指定位置に生成
-                Instantiate(Prefab[Random.Range(0, 3)], transform.position, Quaternion.identity);
+                Instantiate(Prefab[Random.Range(0, 7)], transform.position, Quaternion.identity);
                 RepopCnt = 0;
                 flg = false;
                 audios.PlayOneShot(audioc[0]);
