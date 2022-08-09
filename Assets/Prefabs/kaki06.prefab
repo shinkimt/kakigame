@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2260363281567353556}
   m_Layer: 0
   m_Name: kaki06
-  m_TagString: Untagged
+  m_TagString: kakinone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 2593398758131851977}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 01081751aed56144bb138871d21ff147, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

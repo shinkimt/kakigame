@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - kaki01
+  - kaki02
+  - kaki03
+  - kakinone
   layers:
   - Default
   - TransparentFX
