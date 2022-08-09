@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4151250745607310487}
   - component: {fileID: 2742204464933843556}
   m_Layer: 0
-  m_Name: kaki05
+  m_Name: nama
   m_TagString: kakinone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

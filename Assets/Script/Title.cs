@@ -22,7 +22,6 @@ public class Title : MonoBehaviour
     //    Screen.fullScreen = true;
 
 
-        // クリック話て重力反映させ落下状態と回転停止
         if (Input.GetMouseButtonUp(0))
         {
             audios.PlayOneShot(se);

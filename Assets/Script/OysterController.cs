@@ -83,6 +83,9 @@ public class OysterController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(this.tag == "Untagged" )
+        this.tag = this.GetComponent<SpriteRenderer>().sprite.name.ToString();
+
         if (collision.gameObject.name == "DeathZone")
             Destroy(this.gameObject);
     }

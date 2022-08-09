@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9066828334008866688}
   m_Layer: 0
   m_Name: kaki01
-  m_TagString: kaki01
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

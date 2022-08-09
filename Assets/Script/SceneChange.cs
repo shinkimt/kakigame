@@ -1,24 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-
-    }
+    int num = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        FadeManager.Instance.LoadScene("Title", 3.0f);
+        // カゴからあふれたアイテムがデスゾーンに触れたらコルーチン動作
+        StartCoroutine(change());
+    }
+
+    // 1秒待ってからカゴの上のオブジェクトを数えて、画面遷移
+    private IEnumerator change()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        // 各牡蠣の数を数えて、一つの値にする
+        GameObject[] kaki01 = GameObject.FindGameObjectsWithTag("kaki01");
+        GameObject[] kaki02 = GameObject.FindGameObjectsWithTag("kaki02");
+        GameObject[] kaki03 = GameObject.FindGameObjectsWithTag("kaki03");
+
+        num += kaki01.Length * 100;
+        num += kaki02.Length * 10;
+        num += kaki03.Length;
+
+        Debug.Log(num);
+
+        SceneManager.sceneLoaded += hoge;
+
+        FadeManager.Instance.LoadScene("Result", 2.0f);
+    }
+
+    // Result画面をロードした際に読み込まれる処理
+    void hoge(Scene next, LoadSceneMode mode)
+    {
+        // ResultスクリプトのScore変数に牡蠣の数をセット
+        var obj = GameObject.Find("Result").GetComponent<Result>();
+        obj.Score = num;
+        SceneManager.sceneLoaded -= hoge;
     }
 
 }
