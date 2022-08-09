@@ -15,6 +15,9 @@ public class CreateBlock : MonoBehaviour
 
     public AudioClip[] audioc = new AudioClip[2];
     AudioSource audios;
+
+    int randtmp = 0;
+
     private void Awake()
     {
 
@@ -25,7 +28,7 @@ public class CreateBlock : MonoBehaviour
     {
         audios = GetComponent<AudioSource>();
         // 牡蠣プレハブをエミッターの位置に生成
-        Instantiate(Prefab[Random.Range(0,7)], transform.position, Quaternion.identity);
+        Instantiate(Prefab[Random.Range(0,6)], transform.position, Quaternion.identity);
         audios.PlayOneShot(audioc[0]);
     }
 
@@ -42,6 +45,7 @@ public class CreateBlock : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        randtmp = Random.Range(0, 6);
         Debug.Log(RepopCnt);
 
 
@@ -67,12 +71,10 @@ public class CreateBlock : MonoBehaviour
             else
             {
                 // プレハブを指定位置に生成
-                Instantiate(Prefab[Random.Range(0, 7)], transform.position, Quaternion.identity);
+                Instantiate(Prefab[Random.Range(0, 6)], transform.position, Quaternion.identity);
                 RepopCnt = 0;
                 flg = false;
                 audios.PlayOneShot(audioc[0]);
-
-
             }
 
         }
@@ -89,7 +91,7 @@ public class CreateBlock : MonoBehaviour
                 ScrollCnt = 0;
 
                 // プレハブを指定位置に生成
-                Instantiate(Prefab[Random.Range(0, 7)], transform.position, Quaternion.identity);
+                Instantiate(Prefab[Random.Range(0, 6)], transform.position, Quaternion.identity);
                 RepopCnt = 0;
                 flg = false;
                 audios.PlayOneShot(audioc[0]);
