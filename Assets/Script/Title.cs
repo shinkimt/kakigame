@@ -19,7 +19,7 @@ public class Title : MonoBehaviour
     }
     private void Update()
     {
-    //    Screen.fullScreen = true;
+        Screen.fullScreen = false;
 
 
         if (Input.GetMouseButtonUp(0))

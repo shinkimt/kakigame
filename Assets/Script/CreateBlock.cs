@@ -22,6 +22,8 @@ public class CreateBlock : MonoBehaviour
     private void Start()
     {
         audios = GetComponent<AudioSource>();
+        Screen.fullScreen = false;
+
     }
 
     private void Update()

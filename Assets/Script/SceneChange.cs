@@ -7,10 +7,15 @@ public class SceneChange : MonoBehaviour
 {
     int num = 0;
 
+    bool flg = true;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(flg)
         // カゴからあふれたアイテムがデスゾーンに触れたらコルーチン動作
         StartCoroutine(change());
+
+        flg = false;
     }
 
     // 1秒待ってからカゴの上のオブジェクトを数えて、画面遷移
@@ -31,7 +36,7 @@ public class SceneChange : MonoBehaviour
 
         SceneManager.sceneLoaded += hoge;
 
-        FadeManager.Instance.LoadScene("Result", 2.0f);
+        FadeManager.Instance.LoadScene("Result", 1.0f);
     }
 
     // Result画面をロードした際に読み込まれる処理

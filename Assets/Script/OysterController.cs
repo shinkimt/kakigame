@@ -19,9 +19,10 @@ public class OysterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.fullScreen = false;
+
         // アプリフレームレートを60fpsに設定
         Application.targetFrameRate = 60;
-        Screen.fullScreen = true;
         //リジッドボディの取得（タッチで落下させる処理を行うため）
         rb2d = GetComponent<Rigidbody2D>();
 
@@ -37,6 +38,8 @@ public class OysterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Screen.fullScreen = false;
+
         if (rb2d.velocity.magnitude > 3.0f)
         {
             rb2d.velocity = new Vector2(0.0f, rb2d.velocity.y/1.1f);
@@ -49,6 +52,8 @@ public class OysterController : MonoBehaviour
             {
                 rb2d.gravityScale = 1.0f;
                 TouchFlg = false;
+                Screen.fullScreen = false;
+
             }
 
             // スワイプによる移動処理
@@ -84,7 +89,7 @@ public class OysterController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(this.tag == "Untagged" )
-        this.tag = this.GetComponent<SpriteRenderer>().sprite.name.ToString();
+         this.tag = this.GetComponent<SpriteRenderer>().sprite.name.ToString();
 
         if (collision.gameObject.name == "DeathZone")
             Destroy(this.gameObject);
