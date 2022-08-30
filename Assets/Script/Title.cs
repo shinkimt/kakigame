@@ -13,13 +13,14 @@ public class Title : MonoBehaviour
 
     private void Start()
     {
+        Screen.fullScreen = false;
+
         // アプリフレームレートを60fpsに設定
         Application.targetFrameRate = 60;
         audios = GetComponent<AudioSource>();
     }
     private void Update()
     {
-        Screen.fullScreen = false;
 
 
         if (Input.GetMouseButtonUp(0))

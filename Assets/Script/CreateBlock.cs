@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 落下オブジェクト（牡蠣）を管理、出現させるための処理をまとめたクラス
+// GameシーンのObjEmitterにアタッチする
 public class CreateBlock : MonoBehaviour
 {
     // プレハブ格納用
+    // 落下オブジェクトのデータを格納、確率調整のため、牡蠣6、その他3の設定
     public GameObject[] Prefab = new GameObject[9];
 
+    // 牡蠣生成を管理するフラグ
     bool flg = true;
+    // 牡蠣が積み重なりスクロールするか否かを管理するフラグ
     bool ScrollFlg = false;
 
+    // リポップ管理のカウント
     int RepopCnt;
+    // スクロール時間管理のカウント
     int ScrollCnt = 0;
+    // リポップまでの基準の値、エディタ側で設定する、初期値は100
     public int Check_Cnt;
 
     public AudioClip[] audioc = new AudioClip[2];
@@ -45,16 +53,14 @@ public class CreateBlock : MonoBehaviour
         if (flg)
             RepopCnt++;
 
-        // 一定時間経過後
+        // 一定時間経過後かつ画面がスクロールしていない
         if (RepopCnt > Check_Cnt && ScrollFlg == false)
         {
             // レイを真下に飛ばし、エミッター近くにオブジェクトがないかチェック
             Vector3 pos = gameObject.transform.position;
             pos.y = -5.0f;
-          //  Debug.DrawRay(gameObject.transform.position, pos, Color.red, 0.1f);
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position, pos);
-          //  Debug.Log(hit.distance);
 
             // オブジェクトが近い場合カメラとエミッター全体を上方向に移動させる。
             if (hit.distance < 4.0f)
@@ -63,7 +69,7 @@ public class CreateBlock : MonoBehaviour
             }
             else
             {
-                // プレハブを指定位置に生成
+                // 落下オブジェクトを指定位置に生成
                 FallObjPop();
             }
 
@@ -90,6 +96,7 @@ public class CreateBlock : MonoBehaviour
 
     }
 
+    // 落下オブジェクトを生成、各種フラグ情報などをリセットする
     void FallObjPop()
     {
         // プレハブを指定位置に生成
