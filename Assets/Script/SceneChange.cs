@@ -34,18 +34,18 @@ public class SceneChange : MonoBehaviour
 
         Debug.Log(num);
 
-        SceneManager.sceneLoaded += hoge;
+        SceneManager.sceneLoaded += KeepScore;
 
         FadeManager.Instance.LoadScene("Result", 1.0f);
     }
 
     // Result画面をロードした際に読み込まれる処理
-    void hoge(Scene next, LoadSceneMode mode)
+    void KeepScore(Scene next, LoadSceneMode mode)
     {
         // ResultスクリプトのScore変数に牡蠣の数をセット
         var obj = GameObject.Find("Result").GetComponent<Result>();
         obj.Score = num;
-        SceneManager.sceneLoaded -= hoge;
+        SceneManager.sceneLoaded -= KeepScore;
     }
 
 }

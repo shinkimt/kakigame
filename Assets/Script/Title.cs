@@ -17,12 +17,13 @@ public class Title : MonoBehaviour
 
         // アプリフレームレートを60fpsに設定
         Application.targetFrameRate = 60;
+
         audios = GetComponent<AudioSource>();
     }
+
     private void Update()
     {
-
-
+        // タッチを離したら画面遷移開始
         if (Input.GetMouseButtonUp(0))
         {
             audios.PlayOneShot(se);
@@ -31,11 +32,10 @@ public class Title : MonoBehaviour
     }
     public void PressStart()
     {
-        Debug.Log("Press Start!");
+        // 画面遷移処理の多重起動防止
         if (!firstPush)
         {
             FadeManager.Instance.LoadScene("Game", 1.0f);
-//            SceneManager.LoadScene("Game");
             firstPush = true;
         }
     }
