@@ -21,3 +21,15 @@ https://qiita.com/hoktist/items/1f70b98ea44d7538b05f
 
 フェードイン切り替えプレハブ
 https://materializer.co/lab/blog/139
+
+ランキングFireBase関係
+https://younaship.com/2020/01/14/fire-ranking/
+https://www.create-forever.games/firebase-database1/
+https://qiita.com/hashito/items/73ad0d0fed6c75e0ee42
+https://playfab-master.com/unity-baas
+
+画面キャプチャ　ReadPixel
+https://yttm-work.jp/unity/unity_0030.html
+https://light11.hatenadiary.com/entry/2018/04/19/192905
+https://qiita.com/tempura/items/e8f4bbb4419407916d12
+https://tsubakit1.hateblo.jp/entry/2016/06/06/221919
