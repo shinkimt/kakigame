@@ -119,10 +119,6 @@ public class Result : MonoBehaviour
         kaki2 %= 10;
         int ones = kaki2;
 
-        Debug.Log("tens" + tens.ToString());
-        Debug.Log("ones" + ones.ToString());
-
-
         Image img_ones = objs[(int)UI_OBJS.KAKI2ONES].GetComponent<Image>();
         Image img_tens = objs[(int)UI_OBJS.KAKI2TENS].GetComponent<Image>();
 
@@ -141,10 +137,6 @@ public class Result : MonoBehaviour
         int tens = kaki3 / 10;
         kaki3 %= 10;
         int ones = kaki3;
-
-        Debug.Log("tens" + tens.ToString());
-        Debug.Log("ones" + ones.ToString());
-
 
         Image img_ones = objs[(int)UI_OBJS.KAKI3ONES].GetComponent<Image>();
         Image img_tens = objs[(int)UI_OBJS.KAKI3TENS].GetComponent<Image>();
@@ -165,10 +157,6 @@ public class Result : MonoBehaviour
         int tens = Score / 10;
         Score %= 10;
         int ones = Score;
-
-        Debug.Log("tens" + tens.ToString());
-        Debug.Log("ones" + ones.ToString());
-
 
         Image img_ones = objs[(int)UI_OBJS.ONES].GetComponent<Image>();
         Image img_tens = objs[(int)UI_OBJS.TENS].GetComponent<Image>();
