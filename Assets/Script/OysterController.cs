@@ -10,6 +10,7 @@ public class OysterController : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     bool TouchFlg = false;
+    static bool Death = false;
 
     // ドラッグ移動制御に使用する値
     Vector3 previousPos, currentPos;
@@ -37,6 +38,13 @@ public class OysterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Death)
+        {
+            Debug.Log("desu");
+            return;
+        }
+
         Screen.fullScreen = false;
 
         // 落下速度を一定にする　基準値3.0を超えた場合、速度を再設定する
@@ -94,7 +102,10 @@ public class OysterController : MonoBehaviour
 
         // 画面下部のゾーンに触れたらオブジェクト削除
         if (collision.gameObject.name == "DeathZone")
+        {
+            Death = true;
             Destroy(this.gameObject);
+        }
     }
 
     void Rotate()
