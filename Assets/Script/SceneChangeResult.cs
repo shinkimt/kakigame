@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChange : MonoBehaviour
+public class SceneChangeResult : MonoBehaviour
 {
     int num = 0;
 
@@ -11,9 +11,9 @@ public class SceneChange : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(flg)
         // カゴからあふれたアイテムがデスゾーンに触れたらコルーチン動作
-        StartCoroutine(change());
+        if (flg)
+            StartCoroutine(change());
 
         flg = false;
     }

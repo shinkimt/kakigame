@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CreditButton : MonoBehaviour
+public class SceneChangeButton : MonoBehaviour
 {
     private bool firstPush = false;
-
-    public AudioClip se;
-
-    AudioSource audios;
+    string objname = null;
 
     private void Start()
     {
-        audios = GetComponent<AudioSource>();
+        // ‘JˆÚæ‚ğw’è‚·‚é‚½‚ßAƒ{ƒ^ƒ“–¼‚ğæ“¾‚·‚é
+        objname = this.name;
     }
 
     private void Update()
@@ -22,7 +20,6 @@ public class CreditButton : MonoBehaviour
 
     public void ButtonClicked()
     {
-        audios.PlayOneShot(se);
         PressStart();
     }
     public void PressStart()
@@ -30,7 +27,7 @@ public class CreditButton : MonoBehaviour
         // ‰æ–Ê‘JˆÚˆ—‚Ì‘½d‹N“®–h~
         if (!firstPush)
         {
-            FadeManager.Instance.LoadScene("Credit", 0.5f);
+            FadeManager.Instance.LoadScene(objname, 1.0f);
             firstPush = true;
         }
     }
