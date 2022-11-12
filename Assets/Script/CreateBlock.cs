@@ -29,6 +29,12 @@ public class CreateBlock : MonoBehaviour
 
     GameObject scroll;
 
+    private void Awake()
+    {
+        StartCoroutine(StartWait()); 
+    }
+
+
     private void Start()
     {
         audios = GetComponent<AudioSource>();
@@ -113,4 +119,11 @@ public class CreateBlock : MonoBehaviour
         flg = false;
         audios.PlayOneShot(audioc[0]);
     }
+
+    private IEnumerator StartWait()
+    {
+        yield return new WaitForSeconds(3.3f);
+        this.enabled = true;
+    }
+
 }
