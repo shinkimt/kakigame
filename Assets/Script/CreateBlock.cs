@@ -27,11 +27,26 @@ public class CreateBlock : MonoBehaviour
 
     int randtmp = 0;
 
+    GameObject scroll;
+
+    private void Awake()
+    {
+        StartCoroutine(StartWait()); 
+    }
+
+
     private void Start()
     {
         audios = GetComponent<AudioSource>();
         Screen.fullScreen = false;
 
+        scroll = GameObject.Find("Scroll");
+
+        // プレハブを指定位置に生成
+        Instantiate(Prefab[randtmp], transform.position, Quaternion.identity);
+        RepopCnt = 0;
+        flg = false;
+        audios.PlayOneShot(audioc[0]);
     }
 
     private void Update()
@@ -78,8 +93,7 @@ public class CreateBlock : MonoBehaviour
         // スクロールフラグがtrueであれば、画面全体を少し上にスクロールさせる
         if (ScrollFlg)
         {
-            GameObject obj = GameObject.Find("Scroll");
-            Transform my = obj.transform;
+            Transform my = scroll.transform;
             my.Translate(0.0f, 0.01f, 0.0f);
 
             // スクロール時間は約1秒
@@ -105,4 +119,11 @@ public class CreateBlock : MonoBehaviour
         flg = false;
         audios.PlayOneShot(audioc[0]);
     }
+
+    private IEnumerator StartWait()
+    {
+        yield return new WaitForSeconds(3.3f);
+        this.enabled = true;
+    }
+
 }
