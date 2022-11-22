@@ -39,9 +39,11 @@ public class OysterController : MonoBehaviour
     void Update()
     {
 
+        // 死亡フラグが確認されたら
         if (Death)
         {
-            Debug.Log("desu");
+            // おわり！アニメーションの再生に入る
+            SetGameOverAnim();
             return;
         }
 
@@ -103,8 +105,9 @@ public class OysterController : MonoBehaviour
         // 画面下部のゾーンに触れたらオブジェクト削除
         if (collision.gameObject.name == "DeathZone")
         {
+            // 死亡フラグをオン
             Death = true;
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 
@@ -113,4 +116,15 @@ public class OysterController : MonoBehaviour
         transform.Rotate(new Vector3(0, 0, 1.0f));
     }
 
+    void SetGameOverAnim()
+    {
+        Debug.Log("animator");
+        // おわり！オブジェクトを取得
+        GameObject end_anim = GameObject.Find("Canvas").transform.Find("End").gameObject;
+        end_anim.SetActive(true);
+        Animator anim = end_anim.GetComponent<Animator>();
+
+        anim.SetBool("GameOverFlg",true);
+
+    }
 }

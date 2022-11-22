@@ -31,6 +31,7 @@ public class CreateBlock : MonoBehaviour
 
     private void Awake()
     {
+        // スタートアニメーションの処理を待機する
         StartCoroutine(StartWait()); 
     }
 
@@ -122,6 +123,7 @@ public class CreateBlock : MonoBehaviour
 
     private IEnumerator StartWait()
     {
+        // スタートアニメーション後に処理開始
         yield return new WaitForSeconds(3.3f);
         this.enabled = true;
     }
