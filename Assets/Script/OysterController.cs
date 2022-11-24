@@ -11,6 +11,7 @@ public class OysterController : MonoBehaviour
     private Rigidbody2D rb2d;
     bool TouchFlg = false;
     static bool Death = false;
+    bool RenderFlg = false;
 
     // ドラッグ移動制御に使用する値
     Vector3 previousPos, currentPos;
@@ -21,6 +22,7 @@ public class OysterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.fullScreen = false;
 
         //リジッドボディの取得（タッチで落下させる処理を行うため）
         rb2d = GetComponent<Rigidbody2D>();
@@ -33,6 +35,9 @@ public class OysterController : MonoBehaviour
             transform.localScale = scale;
         }
 
+        // エフェクトが発生し終わってからキャラ表示
+        StartCoroutine(RendererOn());
+
     }
 
     // Update is called once per frame
@@ -42,12 +47,10 @@ public class OysterController : MonoBehaviour
         // 死亡フラグが確認されたら
         if (Death)
         {
-            // おわり！アニメーションの再生に入る
+            // 「おわり！」アニメーションの再生に入る
             SetGameOverAnim();
             return;
         }
-
-        Screen.fullScreen = false;
 
         // 落下速度を一定にする　基準値3.0を超えた場合、速度を再設定する
         if (rb2d.velocity.magnitude > 3.0f)
@@ -55,13 +58,14 @@ public class OysterController : MonoBehaviour
             rb2d.velocity = new Vector2(0.0f, rb2d.velocity.y/1.1f);
         }
 
-        if(!TouchFlg)
+        // タッチ可能かつ描画されていれば
+        if(TouchFlg && RenderFlg)
         {
             // クリックして重力反映させ落下状態と回転を停止
             if (Input.GetMouseButtonUp(0))
             {
                 rb2d.gravityScale = 1.0f;
-                TouchFlg = true;
+                TouchFlg = false;
             }
 
             // スワイプによる移動処理
@@ -92,7 +96,7 @@ public class OysterController : MonoBehaviour
     void FixedUpdate()
     {
         // タッチした指が画面から離されたら回転を止める
-        if (!TouchFlg)
+        if (TouchFlg)
             Rotate();
     }
 
@@ -125,6 +129,16 @@ public class OysterController : MonoBehaviour
         Animator anim = end_anim.GetComponent<Animator>();
 
         anim.SetBool("GameOverFlg",true);
+
+    }
+
+    private IEnumerator RendererOn()
+    {
+        // スタートアニメーション後に処理開始
+        yield return new WaitForSeconds(0.5f);
+        this.GetComponent<SpriteRenderer>().enabled = true;
+        RenderFlg = true;
+        TouchFlg = true;
 
     }
 }
