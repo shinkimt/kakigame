@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 13578237}
   - component: {fileID: 13578239}
   - component: {fileID: 13578238}
-  - component: {fileID: 13578240}
   m_Layer: 5
   m_Name: kaki1ones
   m_TagString: kaki01
@@ -200,26 +199,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13578236}
   m_CullTransparentMesh: 1
---- !u!95 &13578240
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13578236}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 81b360a2b191eb8408c2843f2284c1a2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &55014608
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +402,6 @@ GameObject:
   - component: {fileID: 216411969}
   - component: {fileID: 216411971}
   - component: {fileID: 216411970}
-  - component: {fileID: 216411972}
   m_Layer: 5
   m_Name: kaki1tens
   m_TagString: kaki01tens
@@ -489,26 +467,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216411968}
   m_CullTransparentMesh: 1
---- !u!95 &216411972
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216411968}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1e675a66a6aeda847bae7b0c810864eb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &230751888
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +554,6 @@ GameObject:
   - component: {fileID: 253068956}
   - component: {fileID: 253068958}
   - component: {fileID: 253068957}
-  - component: {fileID: 253068959}
   m_Layer: 5
   m_Name: kaki2ones
   m_TagString: kaki02
@@ -662,26 +619,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253068955}
   m_CullTransparentMesh: 1
---- !u!95 &253068959
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253068955}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 28a70689d5439274ea4aa64c2406a8f0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &277720836
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +706,6 @@ GameObject:
   - component: {fileID: 310291812}
   - component: {fileID: 310291814}
   - component: {fileID: 310291813}
-  - component: {fileID: 310291815}
   m_Layer: 5
   m_Name: kaki2tens
   m_TagString: kaki02tens
@@ -835,26 +771,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310291811}
   m_CullTransparentMesh: 1
---- !u!95 &310291815
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310291811}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 652c366a90a9de04c98147eabef00e5c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &337767663
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +782,6 @@ GameObject:
   - component: {fileID: 337767664}
   - component: {fileID: 337767666}
   - component: {fileID: 337767665}
-  - component: {fileID: 337767667}
   m_Layer: 5
   m_Name: kaki3ones
   m_TagString: kaki03
@@ -932,26 +847,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337767663}
   m_CullTransparentMesh: 1
---- !u!95 &337767667
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337767663}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 737e116c247d80c408bcb878339e082c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &437301925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470563166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0866611, y: 0.16758062, z: -0.063368976}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10883,7 +10778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945415303}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.01, y: 0.12, z: 0}
+  m_LocalPosition: {x: -6.79, y: 0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11020,7 +10915,6 @@ GameObject:
   - component: {fileID: 1199839751}
   - component: {fileID: 1199839753}
   - component: {fileID: 1199839752}
-  - component: {fileID: 1199839754}
   m_Layer: 5
   m_Name: kaki3tens
   m_TagString: kaki03tens
@@ -11086,26 +10980,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199839750}
   m_CullTransparentMesh: 1
---- !u!95 &1199839754
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199839750}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 768b87368a03c57479bda3e4f6211658, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1503041119
 GameObject:
   m_ObjectHideFlags: 0
@@ -11903,7 +11777,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -16763,8 +16637,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085347684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.17, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.03, y: 0.29, z: 1}
+  m_LocalScale: {x: 0.8260329, y: 0.8260329, z: 0.8260329}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
