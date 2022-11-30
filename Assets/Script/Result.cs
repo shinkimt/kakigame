@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 // リザルト画面を管理するクラス
 public class Result : MonoBehaviour
@@ -49,7 +49,7 @@ public class Result : MonoBehaviour
     {
         // 前シーンから取得したスコア情報を分割して保存
         kaki1 = Score / 100; Score %= 100;
-        kaki2 = Score / 10;  Score %= 10;
+        kaki2 = Score / 10; Score %= 10;
         kaki3 = Score;
 
         // 合計スコア表示用に計算
@@ -59,7 +59,7 @@ public class Result : MonoBehaviour
 
         // 非アクティブ化しているUIオブジェクトを取得
         int i = 0;
-        foreach(string a in str)
+        foreach (string a in str)
         {
             objs[i] = GameObject.Find("Canvas").transform.Find(str[i]).gameObject;
             i++;
@@ -73,6 +73,8 @@ public class Result : MonoBehaviour
 
         // 総合評価スタンプを表示する処理
         StartCoroutine(Stamp());// 遷移から7.5秒後
+
+        StartCoroutine(Process());
     }
 
     void Update()
@@ -80,6 +82,8 @@ public class Result : MonoBehaviour
         // マウスクリックでタイトル画面へ遷移
         if (Input.GetMouseButtonUp(0) && process_end_flg)
         {
+            SceneManager.sceneLoaded += KeepScore;
+
             FadeManager.Instance.LoadScene("Title", 1.0f);
         }
     }
@@ -188,7 +192,22 @@ public class Result : MonoBehaviour
 
         objs[(int)UI_OBJS.RESULT].SetActive(true);
 
-        process_end_flg = true;
     }
 
+    private IEnumerator Process()
+    {
+        yield return new WaitForSeconds(10.0f);
+        // タッチを反応できるようにする
+        process_end_flg = true;
+
+    }
+
+    // Result画面をロードした際に読み込まれる処理
+    void KeepScore(Scene next, LoadSceneMode mode)
+    {
+        // ResultスクリプトのScore変数に牡蠣の数をセット
+        var obj = GameObject.Find("title").GetComponent<GameInit>();
+        GameInit.high_Score = Result_Score;
+        SceneManager.sceneLoaded -= KeepScore;
+    }
 }
