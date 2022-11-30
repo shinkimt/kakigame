@@ -23,6 +23,10 @@ public class OysterController : MonoBehaviour
     void Start()
     {
         Screen.fullScreen = false;
+        
+        TouchFlg = false;
+        Death = false;
+        RenderFlg = false;
 
         //リジッドボディの取得（タッチで落下させる処理を行うため）
         rb2d = GetComponent<Rigidbody2D>();
@@ -111,6 +115,7 @@ public class OysterController : MonoBehaviour
         {
             // 死亡フラグをオン
             Death = true;
+            this.tag = "Untagged";
             //Destroy(this.gameObject);
         }
 
@@ -128,8 +133,7 @@ public class OysterController : MonoBehaviour
 
     void SetGameOverAnim()
     {
-        Debug.Log("animator");
-        // おわり！オブジェクトを取得
+          // おわり！オブジェクトを取得
         GameObject end_anim = GameObject.Find("Canvas").transform.Find("End").gameObject;
         end_anim.SetActive(true);
         Animator anim = end_anim.GetComponent<Animator>();
