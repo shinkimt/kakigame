@@ -1240,6 +1240,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kaki3Effects
       objectReference: {fileID: 0}
+    - target: {fileID: 4135774138620472364, guid: 3b1b41a63b6554446a7b5d3676eb2209, type: 3}
+      propertyPath: RotationBySpeedModule.curve.scalar
+      value: -3.4906585
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135774138620472364, guid: 3b1b41a63b6554446a7b5d3676eb2209, type: 3}
+      propertyPath: RotationBySpeedModule.separateAxes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4135774138620472365, guid: 3b1b41a63b6554446a7b5d3676eb2209, type: 3}
       propertyPath: m_RootOrder
       value: 3

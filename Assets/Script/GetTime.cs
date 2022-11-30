@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class GetTime : MonoBehaviour
 {
     DateTime dt;
-    public Text text;
+    public TextMeshProUGUI text;
+
 
     // Start is called before the first frame update
     void Start()
