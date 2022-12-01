@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class GameInit : MonoBehaviour
 {
@@ -26,7 +28,8 @@ public class GameInit : MonoBehaviour
 
         audios = GetComponent<AudioSource>();
 
-        text.text = high_Score.ToString();
+        if(SceneManager.GetActiveScene().name == "Title")
+            text.text = high_Score.ToString();
 
     }
 
