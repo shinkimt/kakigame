@@ -108,7 +108,7 @@ public class OysterController : MonoBehaviour
     {
         // 何らかの物体と接触したら牡蠣君だけ、スコア計算のためにタグ情報を変更する
         if(this.tag == "Untagged" )
-         this.tag = this.GetComponent<SpriteRenderer>().sprite.name.ToString();
+            this.tag = this.GetComponent<SpriteRenderer>().sprite.name.ToString();
 
         // 画面下部のゾーンに触れたらオブジェクト削除
         if (collision.gameObject.name == "DeathZone")
@@ -145,7 +145,7 @@ public class OysterController : MonoBehaviour
     private IEnumerator RendererOn()
     {
         // スタートアニメーション後に処理開始
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.6f);
         this.GetComponent<SpriteRenderer>().enabled = true;
         RenderFlg = true;
         TouchFlg = true;
