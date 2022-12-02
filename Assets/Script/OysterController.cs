@@ -13,6 +13,8 @@ public class OysterController : MonoBehaviour
     static bool Death = false;
     bool RenderFlg = false;
 
+    int cnt = 0;
+
     // ドラッグ移動制御に使用する値
     Vector3 previousPos, currentPos;
     const float LOAD_WIDTH = 6f;
@@ -23,7 +25,9 @@ public class OysterController : MonoBehaviour
     void Start()
     {
         Screen.fullScreen = false;
-        
+        previousPos = new Vector3(115.0f, 30.0f, 0.0f);
+        currentPos = new Vector3(0.0f, 30.0f, 0.0f);
+
         TouchFlg = false;
         Death = false;
         RenderFlg = false;
@@ -48,6 +52,14 @@ public class OysterController : MonoBehaviour
     void Update()
     {
 
+
+
+        // 落下速度を一定にする　基準値3.0を超えた場合、速度を再設定する
+        if (rb2d.velocity.magnitude > 4.0f)
+        {
+            rb2d.velocity = new Vector2(0.0f, rb2d.velocity.y/1.1f);
+        }
+
         // 死亡フラグが確認されたら
         if (Death)
         {
@@ -56,20 +68,25 @@ public class OysterController : MonoBehaviour
             return;
         }
 
-        // 落下速度を一定にする　基準値3.0を超えた場合、速度を再設定する
-        if (rb2d.velocity.magnitude > 3.0f)
+        if (RenderFlg)
+            cnt++;
+
+        if(cnt > 20)
         {
-            rb2d.velocity = new Vector2(0.0f, rb2d.velocity.y/1.1f);
+            TouchFlg = true;
+            cnt = 0;
         }
 
         // タッチ可能かつ描画されていれば
-        if(TouchFlg && RenderFlg)
+        if(TouchFlg)
         {
             // クリックして重力反映させ落下状態と回転を停止
             if (Input.GetMouseButtonUp(0))
             {
                 rb2d.gravityScale = 1.0f;
                 TouchFlg = false;
+                RenderFlg = false;
+
             }
 
             // スワイプによる移動処理
@@ -86,7 +103,7 @@ public class OysterController : MonoBehaviour
                 currentPos = Input.mousePosition;
                 float diffDistance = (currentPos.x - previousPos.x) / Screen.width * LOAD_WIDTH;
 
-                // 次のローカルx座標を設定 ※道の外にでないように
+                // 次のローカルx座標を設定 ※外にでないように
                 float newX = Mathf.Clamp(transform.localPosition.x + diffDistance, -MOVE_MAX, MOVE_MAX);
                 transform.localPosition = new Vector3(newX, this.transform.localPosition.y, 0);
 
@@ -142,6 +159,5 @@ public class OysterController : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         this.GetComponent<SpriteRenderer>().enabled = true;
         RenderFlg = true;
-        TouchFlg = true;
     }
 }

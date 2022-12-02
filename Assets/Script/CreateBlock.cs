@@ -72,7 +72,7 @@ public class CreateBlock : MonoBehaviour
             RepopCnt++;
 
         // 一定時間経過後かつ画面がスクロールしていない
-        if (RepopCnt > Check_Cnt && ScrollFlg == false)
+        if ( (RepopCnt > Check_Cnt) && !ScrollFlg)
         {
             // レイを真下に飛ばし、エミッター近くにオブジェクトがないかチェック
             Vector3 pos = gameObject.transform.position;
@@ -81,7 +81,7 @@ public class CreateBlock : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, pos);
 
             // オブジェクトが近い場合カメラとエミッター全体を上方向に移動させる。
-            if (hit.distance < 4.0f)
+            if (hit.distance < 3.0f)
             {
                 ScrollFlg = true;
             }
