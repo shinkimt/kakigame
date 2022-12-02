@@ -100,7 +100,7 @@ public class OysterController : MonoBehaviour
     void FixedUpdate()
     {
         // ƒ^ƒbƒ`‚µ‚½Žw‚ª‰æ–Ê‚©‚ç—£‚³‚ê‚½‚ç‰ñ“]‚ðŽ~‚ß‚é
-        if (TouchFlg)
+        if (TouchFlg && !Death)
             Rotate();
     }
 
@@ -149,6 +149,5 @@ public class OysterController : MonoBehaviour
         this.GetComponent<SpriteRenderer>().enabled = true;
         RenderFlg = true;
         TouchFlg = true;
-
     }
 }
