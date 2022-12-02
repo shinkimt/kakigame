@@ -1088,12 +1088,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353167006}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8c38661a5b788944ad04222ab4bf9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 5570581680271820763, guid: b0e3ca3c6edc6a2468b22662522aa9de, type: 3}
+  particle: {fileID: 1626967872664384686, guid: cad2ebbed5433854ea4da9bf457a99c9, type: 3}
 --- !u!82 &1353167011
 AudioSource:
   m_ObjectHideFlags: 0

@@ -118,12 +118,6 @@ public class OysterController : MonoBehaviour
             this.tag = "Untagged";
             //Destroy(this.gameObject);
         }
-
-        // エフェクトオブジェクトを削除
-        foreach (Transform n in this.transform)
-        {
-            GameObject.Destroy(n.gameObject);
-        }
     }
 
     void Rotate()
