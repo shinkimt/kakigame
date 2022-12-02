@@ -34,6 +34,9 @@ public class Result : MonoBehaviour
     GameObject[] objs = new GameObject[10];
     public Sprite[] sprites = new Sprite[13];
 
+    public AudioClip[] audio_list = new AudioClip[2];
+    AudioSource audios;
+
     // 最終評価が出力されたらタップでタイトルへ
     //メモ：0～3いまいち　4～7おみごと 7～あっぱれ
     private bool process_end_flg = false;
@@ -64,6 +67,9 @@ public class Result : MonoBehaviour
             objs[i] = GameObject.Find("Canvas").transform.Find(str[i]).gameObject;
             i++;
         }
+
+        audios = GetComponent<AudioSource>();
+
 
         // 牡蠣の個数を判別して描画設定を変更する処理
         StartCoroutine(kaki1_num());// 遷移から2秒後
@@ -111,7 +117,7 @@ public class Result : MonoBehaviour
         // スコアに合わせた画像を設定したオブジェクトをアクティブに
         objs[(int)UI_OBJS.KAKI1ONES].SetActive(true);
         objs[(int)UI_OBJS.KAKI1TENS].SetActive(true);
-
+        audios.PlayOneShot(audio_list[0]);
     }
 
     private IEnumerator kaki2_num()
@@ -131,6 +137,7 @@ public class Result : MonoBehaviour
 
         objs[(int)UI_OBJS.KAKI2ONES].SetActive(true);
         objs[(int)UI_OBJS.KAKI2TENS].SetActive(true);
+        audios.PlayOneShot(audio_list[0]);
 
     }
 
@@ -150,6 +157,7 @@ public class Result : MonoBehaviour
 
         objs[(int)UI_OBJS.KAKI3ONES].SetActive(true);
         objs[(int)UI_OBJS.KAKI3TENS].SetActive(true);
+        audios.PlayOneShot(audio_list[0]);
 
     }
 
@@ -171,6 +179,7 @@ public class Result : MonoBehaviour
         objs[(int)UI_OBJS.ONES].SetActive(true);
         objs[(int)UI_OBJS.TENS].SetActive(true);
         objs[(int)UI_OBJS.COUNT].SetActive(true);
+        audios.PlayOneShot(audio_list[0]);
 
     }
 
@@ -191,6 +200,16 @@ public class Result : MonoBehaviour
             img_result.sprite = sprites[(int)UI_OBJS.APPARE];
 
         objs[(int)UI_OBJS.RESULT].SetActive(true);
+        audios.PlayOneShot(audio_list[1]);
+
+        yield return StampSub();
+    }
+
+    private IEnumerator StampSub()
+    {
+        yield return new WaitForSeconds(0.7f);
+        audios.PlayOneShot(audio_list[1]);
+        Debug.Log("test");
 
     }
 
