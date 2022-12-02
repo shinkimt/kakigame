@@ -26,6 +26,7 @@ public class CreateBlock : MonoBehaviour
     AudioSource audios;
 
     int randtmp = 0;
+    int kaki_cnt = 0;
 
     GameObject scroll;
 
@@ -65,6 +66,7 @@ public class CreateBlock : MonoBehaviour
     {
         // オブジェクト出現種類をランダムで設定
         randtmp = Random.Range(0, 9);
+
 
         if (flg)
             RepopCnt++;
@@ -114,11 +116,24 @@ public class CreateBlock : MonoBehaviour
     // 落下オブジェクトを生成、各種フラグ情報などをリセットする
     void FallObjPop()
     {
+        if (randtmp >= 0 && randtmp <= 5)
+        {
+            kaki_cnt++;
+
+            if (kaki_cnt == 5)
+            {
+                Debug.Log("kakipop");
+                randtmp = 8;
+                kaki_cnt = 0;
+            }
+        }
         // プレハブを指定位置に生成
         Instantiate(Prefab[randtmp], transform.position, Quaternion.identity);
         RepopCnt = 0;
         flg = false;
         audios.PlayOneShot(audioc[0]);
+
+
     }
 
     private IEnumerator StartWait()
