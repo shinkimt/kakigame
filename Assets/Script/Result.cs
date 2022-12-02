@@ -200,14 +200,13 @@ public class Result : MonoBehaviour
             img_result.sprite = sprites[(int)UI_OBJS.APPARE];
 
         objs[(int)UI_OBJS.RESULT].SetActive(true);
-        audios.PlayOneShot(audio_list[1]);
 
         yield return StampSub();
     }
 
     private IEnumerator StampSub()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(1.0f);
         audios.PlayOneShot(audio_list[1]);
         Debug.Log("test");
 

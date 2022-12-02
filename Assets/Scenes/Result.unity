@@ -1086,6 +1086,7 @@ GameObject:
   - component: {fileID: 470563167}
   - component: {fileID: 470563168}
   - component: {fileID: 470563169}
+  - component: {fileID: 470563170}
   m_Layer: 0
   m_Name: Result
   m_TagString: Untagged
@@ -1150,9 +1151,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f4150c4e0d2f4c348b97139da40a1b9b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.26
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1234,6 +1235,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &470563170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470563166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c38661a5b788944ad04222ab4bf9b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1626967872664384686, guid: cad2ebbed5433854ea4da9bf457a99c9, type: 3}
 --- !u!1 &641195994
 GameObject:
   m_ObjectHideFlags: 3
@@ -1731,7 +1745,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b8945edd937e08f488605a8442fbfa2b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8de71a42ecbdd34aa5513ab25245787, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1751,7 +1765,7 @@ Transform:
   m_GameObject: {fileID: 1291293854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.27}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.0695, y: 2.0695, z: 2.0695}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1914,7 +1928,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c32f5e27bc66db843810944998abe8cd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
