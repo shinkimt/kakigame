@@ -16,6 +16,7 @@ public class SceneChangeResult : MonoBehaviour
             StartCoroutine(change());
 
         flg = false;
+        this.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     // 1秒待ってからカゴの上のオブジェクトを数えて、画面遷移

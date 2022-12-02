@@ -52,7 +52,7 @@ public class OysterController : MonoBehaviour
     void Update()
     {
 
-
+        Debug.Log(this.transform.localPosition.x);
 
         // 落下速度を一定にする　基準値3.0を超えた場合、速度を再設定する
         if (rb2d.velocity.magnitude > 4.0f)
@@ -92,7 +92,18 @@ public class OysterController : MonoBehaviour
             // スワイプによる移動処理
             if (Input.GetMouseButtonDown(0))
             {
-                previousPos = Input.mousePosition;
+                // スワイプによる移動距離を取得
+                currentPos = Input.mousePosition;
+
+                float diffDistance = (currentPos.x - previousPos.x) / Screen.width * LOAD_WIDTH;
+
+                // 次のローカルx座標を設定 ※外にでないように
+                float newX = Mathf.Clamp(transform.localPosition.x + diffDistance, -MOVE_MAX, MOVE_MAX);
+                transform.localPosition = new Vector3(newX, this.transform.localPosition.y, 0);
+
+                // タップ位置を更新
+                previousPos = currentPos;
+
             }
 
             // スワイプ処理、どこかのサイトからそのまま引っ張ってきた
@@ -101,6 +112,7 @@ public class OysterController : MonoBehaviour
             {
                 // スワイプによる移動距離を取得
                 currentPos = Input.mousePosition;
+
                 float diffDistance = (currentPos.x - previousPos.x) / Screen.width * LOAD_WIDTH;
 
                 // 次のローカルx座標を設定 ※外にでないように
