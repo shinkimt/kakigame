@@ -13,7 +13,13 @@ public class SceneChangeResult : MonoBehaviour
     {
         // カゴからあふれたアイテムがデスゾーンに触れたらコルーチン動作
         if (flg)
+        {
             StartCoroutine(change());
+
+            // セーフゾーンを動作させる。
+            GameObject.Find("SafeZone1").GetComponent<BoxCollider2D>().enabled = true;
+            GameObject.Find("SafeZone2").GetComponent<BoxCollider2D>().enabled = true;
+        }
 
         flg = false;
         this.GetComponent<BoxCollider2D>().enabled = false;
