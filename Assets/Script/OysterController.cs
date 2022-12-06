@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 // リザルト処理の前に確認する。
 // https://mono-pro.net/archives/9253
 
@@ -10,7 +11,7 @@ public class OysterController : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     bool TouchFlg = false;
-    static bool Death = false;
+    public static bool Death = false;
     bool RenderFlg = false;
 
     int cnt = 0;
@@ -20,13 +21,12 @@ public class OysterController : MonoBehaviour
     const float LOAD_WIDTH = 6f;
     const float MOVE_MAX = 2.5f;
 
-
     // Start is called before the first frame update
     void Start()
     {
         Screen.fullScreen = false;
-        previousPos = new Vector3(115.0f, 30.0f, 0.0f);
-        currentPos = new Vector3(0.0f, 30.0f, 0.0f);
+        previousPos = new Vector3(Screen.width/2, 0.0f, 0.0f);
+        currentPos = new Vector3(Screen.width/2, 0.0f, 0.0f);
 
         TouchFlg = false;
         Death = false;
@@ -51,13 +51,9 @@ public class OysterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Debug.Log(this.transform.localPosition.x);
-
-        // 落下速度を一定にする　基準値3.0を超えた場合、速度を再設定する
-        if (rb2d.velocity.magnitude > 4.0f)
+        if(!(this.tag == "Untagged"))
         {
-            rb2d.velocity = new Vector2(0.0f, rb2d.velocity.y/1.1f);
+            return;
         }
 
         // 死亡フラグが確認されたら
@@ -67,6 +63,13 @@ public class OysterController : MonoBehaviour
             SetGameOverAnim();
             return;
         }
+
+        // 落下速度を一定にする　基準値3.0を超えた場合、速度を再設定する
+        if (rb2d.velocity.magnitude > 4.0f)
+        {
+            rb2d.velocity = new Vector2(0.0f, rb2d.velocity.y/1.1f);
+        }
+
 
         if (RenderFlg)
             cnt++;
@@ -92,17 +95,8 @@ public class OysterController : MonoBehaviour
             // スワイプによる移動処理
             if (Input.GetMouseButtonDown(0))
             {
-                // スワイプによる移動距離を取得
-                currentPos = Input.mousePosition;
-
-                float diffDistance = (currentPos.x - previousPos.x) / Screen.width * LOAD_WIDTH;
-
-                // 次のローカルx座標を設定 ※外にでないように
-                float newX = Mathf.Clamp(transform.localPosition.x + diffDistance, -MOVE_MAX, MOVE_MAX);
-                transform.localPosition = new Vector3(newX, this.transform.localPosition.y, 0);
-
                 // タップ位置を更新
-                previousPos = currentPos;
+                previousPos = Input.mousePosition;
 
             }
 
@@ -135,9 +129,13 @@ public class OysterController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         // 何らかの物体と接触したら牡蠣君だけ、スコア計算のためにタグ情報を変更する
-        if(this.tag == "Untagged" )
+        if (this.tag == "Untagged")
+        {
             this.tag = this.GetComponent<SpriteRenderer>().sprite.name.ToString();
+            //           this.GetComponent<OysterController>().enabled = false;
+        }
 
         // 画面下部のゾーンに触れたらオブジェクト削除
         if (collision.gameObject.name == "DeathZone")
@@ -147,6 +145,8 @@ public class OysterController : MonoBehaviour
             this.tag = "Untagged";
             //Destroy(this.gameObject);
         }
+
+
     }
 
     void Rotate()

@@ -94,7 +94,7 @@ public class CreateBlock : MonoBehaviour
         }
 
         // スクロールフラグがtrueであれば、画面全体を少し上にスクロールさせる
-        if (ScrollFlg)
+        if (ScrollFlg && !OysterController.Death)
         {
             Transform my = scroll.transform;
             my.Translate(0.0f, 0.01f, 0.0f);

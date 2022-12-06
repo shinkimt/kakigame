@@ -99,7 +99,7 @@ public class Result : MonoBehaviour
     // 変更要素と時間差による処理演出の都合上、分割
     private IEnumerator kaki1_num()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
 
         // スコアを1の桁10の桁に分割
         int tens = kaki1 / 10;
@@ -122,7 +122,7 @@ public class Result : MonoBehaviour
 
     private IEnumerator kaki2_num()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.5f);
 
         // スコアを1の桁10の桁に分割
         int tens = kaki2 / 10;
@@ -143,7 +143,7 @@ public class Result : MonoBehaviour
 
     private IEnumerator kaki3_num()
     {
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(2.0f);
 
         int tens = kaki3 / 10;
         kaki3 %= 10;
@@ -163,7 +163,7 @@ public class Result : MonoBehaviour
 
     private IEnumerator Score_num()
     {
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(3.0f);
 
         // スコアを1の桁10の桁に分割
         int tens = Score / 10;
@@ -185,7 +185,7 @@ public class Result : MonoBehaviour
 
     private IEnumerator Stamp()
     {
-        yield return new WaitForSeconds(7.5f);
+        yield return new WaitForSeconds(4.5f);
 
         // Canvasにある結果表示用オブジェクト(result)を取得する
         Image img_result = objs[(int)UI_OBJS.RESULT].GetComponent<Image>();
@@ -208,13 +208,12 @@ public class Result : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         audios.PlayOneShot(audio_list[1]);
-        Debug.Log("test");
 
     }
 
     private IEnumerator Process()
     {
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(6.0f);
         // タッチを反応できるようにする
         process_end_flg = true;
 

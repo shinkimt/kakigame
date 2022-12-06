@@ -28,7 +28,7 @@ public class SceneChangeResult : MonoBehaviour
     // 1秒待ってからカゴの上のオブジェクトを数えて、画面遷移
     private IEnumerator change()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.5f);
 
         // 各牡蠣の数を数えて、一つの値にする
         GameObject[] kaki01 = GameObject.FindGameObjectsWithTag("kaki01");

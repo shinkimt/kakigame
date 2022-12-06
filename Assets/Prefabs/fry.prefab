@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8666680507050878083}
   m_Layer: 0
   m_Name: fry
-  m_TagString: kakinone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

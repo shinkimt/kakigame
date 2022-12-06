@@ -11,6 +11,9 @@ TagManager:
   - kaki01tens
   - kaki02tens
   - kaki03tens
+  - kaki04
+  - kaki05
+  - kaki06
   layers:
   - Default
   - TransparentFX
