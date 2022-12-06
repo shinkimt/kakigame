@@ -29,7 +29,6 @@ public class OysterController : MonoBehaviour
         currentPos = new Vector3(Screen.width/2, 0.0f, 0.0f);
 
         TouchFlg = false;
-        Death = false;
         RenderFlg = false;
 
         //リジッドボディの取得（タッチで落下させる処理を行うため）
@@ -59,8 +58,6 @@ public class OysterController : MonoBehaviour
         // 死亡フラグが確認されたら
         if (Death)
         {
-            // 「おわり！」アニメーションの再生に入る
-            SetGameOverAnim();
             return;
         }
 
@@ -143,6 +140,9 @@ public class OysterController : MonoBehaviour
             // 死亡フラグをオン
             Death = true;
             this.tag = "Untagged";
+            // 「おわり！」アニメーションの再生に入る
+            SetGameOverAnim();
+
             //Destroy(this.gameObject);
         }
 

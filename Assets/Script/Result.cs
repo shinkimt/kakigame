@@ -88,6 +88,7 @@ public class Result : MonoBehaviour
         // マウスクリックでタイトル画面へ遷移
         if (Input.GetMouseButtonUp(0) && process_end_flg)
         {
+            OysterController.Death = false;
             SceneManager.sceneLoaded += KeepScore;
 
             FadeManager.Instance.LoadScene("Title", 1.0f);
