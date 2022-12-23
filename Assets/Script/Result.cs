@@ -225,7 +225,8 @@ public class Result : MonoBehaviour
     {
         // ResultスクリプトのScore変数に牡蠣の数をセット
         var obj = GameObject.Find("title").GetComponent<GameInit>();
-        GameInit.high_Score = Result_Score;
+        if(Result_Score > GameInit.high_Score)
+            GameInit.high_Score = Result_Score;
         SceneManager.sceneLoaded -= KeepScore;
     }
 }
