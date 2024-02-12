@@ -50,6 +50,10 @@ public class OysterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(rb2d.gravityScale != 0.0f)
+        {
+            rb2d.gravityScale = 1.0f;
+        }
         if(!(this.tag == "Untagged"))
         {
             return;
@@ -132,6 +136,8 @@ public class OysterController : MonoBehaviour
         {
             this.tag = this.GetComponent<SpriteRenderer>().sprite.name.ToString();
             //           this.GetComponent<OysterController>().enabled = false;
+
+            CreateBlock.instance.flg = true;
         }
 
         // 画面下部のゾーンに触れたらオブジェクト削除

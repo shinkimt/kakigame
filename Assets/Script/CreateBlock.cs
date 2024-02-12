@@ -11,7 +11,7 @@ public class CreateBlock : MonoBehaviour
     public GameObject[] Prefab = new GameObject[9];
 
     // 牡蠣生成を管理するフラグ
-    bool flg = true;
+    public bool flg = true;
     // 牡蠣が積み重なりスクロールするか否かを管理するフラグ
     bool ScrollFlg = false;
 
@@ -30,8 +30,11 @@ public class CreateBlock : MonoBehaviour
 
     GameObject scroll;
 
+    public static CreateBlock instance;
+
     private void Awake()
     {
+        instance = this;
         // スタートアニメーションの処理を待機する
         StartCoroutine(StartWait()); 
     }
@@ -57,7 +60,7 @@ public class CreateBlock : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             audios.PlayOneShot(audioc[1]);
-            flg = true;
+            //flg = true;
         }
     }
 
